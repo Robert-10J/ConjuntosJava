@@ -46,7 +46,7 @@ public class Main {
             union[i] = conjuntoA[i];
         }
 
-        int pos = 5;
+        int pos = 0;
         for(int x = 0; x < conjuntoB.length; x++){
             int cont = 0;
             for (int j = 0; j < union.length; j++){
@@ -64,5 +64,24 @@ public class Main {
             System.out.print(iterar + " ");
         }
         System.out.print(" }");
+
+        //Interseccion
+        int a = 0;
+        for(int i = 0; i < conjuntoA.length; i++){
+            for (int j = 0; j < conjuntoB.length; j++){
+                if (conjuntoA[i] == conjuntoB[j]){
+                    interseccion[j] = conjuntoA[i];
+                    a++;
+                }
+            }
+        }
+
+        System.out.println("\n");
+
+        System.out.print("Conjunto interseccion: { ");
+        for (int iterar: interseccion){
+            System.out.print(iterar + " ");
+        }
+        System.out.print("}");
     }
 }

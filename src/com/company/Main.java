@@ -130,5 +130,29 @@ public class Main {
         }
         System.out.println("}");
 
+        //Diferencia A-B
+        int k = 0;
+        boolean c = false;
+        for (int i = 0; i < conjuntoA.length; i++){
+            for (int j = 0; j < conjuntoB.length; j++){
+                if (conjuntoA[i] != conjuntoB[j]){
+                    c = false;
+                } else {
+                    c = true;
+                    break;
+                }
+            }
+            if (!c) {
+                dif_B_menos_A[k] = conjuntoA[i];
+                k++;
+            }
+        }
+        System.out.println("\n");
+        System.out.println("La diferencia de A-B: ");
+        System.out.print("{");
+        for (int i = 0; i < k; i++){
+            System.out.printf("%d, ", dif_B_menos_A[i]);
+        }
+        System.out.println("}");
     }
 }

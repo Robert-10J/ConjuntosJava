@@ -12,7 +12,7 @@ public class Main {
         int [] interseccion = new int[10];
         int [] dif_A_menos_B = new int[conjuntoA.length + conjuntoB.length];
         int [] dif_B_menos_A = new int[conjuntoA.length * conjuntoB.length];
-        /*
+        
         System.out.println("Ingrese los elementos para el universo");
         for (int i = 0; i < 10; i++){
             System.out.print("Ingrese elemento: ");
@@ -21,7 +21,6 @@ public class Main {
         for (int iteUni: universo){
             System.out.print(iteUni + " ");
         }
-        */
 
         System.out.println("\n");
         System.out.println("\nIngrese los elementos para el conjunto A");

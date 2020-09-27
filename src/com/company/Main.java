@@ -8,10 +8,11 @@ public class Main {
         int [] universo = new int[10];
         int [] conjuntoA = new int[5];
         int [] conjuntoB = new int[5];
-        int [] union = new int[conjuntoA.length + conjuntoB.length];
-        int [] interseccion = new int[conjuntoA.length + conjuntoB.length];
-        int [] diferencia = new int[conjuntoA.length + conjuntoB.length];
-
+        int [] union = new int[10];
+        int [] interseccion = new int[10];
+        int [] dif_A_menos_B = new int[conjuntoA.length + conjuntoB.length];
+        int [] dif_B_menos_A = new int[conjuntoA.length * conjuntoB.length];
+        /*
         System.out.println("Ingrese los elementos para el universo");
         for (int i = 0; i < 10; i++){
             System.out.print("Ingrese elemento: ");
@@ -20,6 +21,8 @@ public class Main {
         for (int iteUni: universo){
             System.out.print(iteUni + " ");
         }
+        */
+
         System.out.println("\n");
         System.out.println("\nIngrese los elementos para el conjunto A");
         for (int i = 0; i < 5; i++) {
@@ -42,11 +45,11 @@ public class Main {
         }
 
         //AuB conjuntos
-        for (int i = 0; i < conjuntoA.length; i++){
+        for (int i = 0; i < conjuntoA.length; i++) {
             union[i] = conjuntoA[i];
         }
+        int pos = 5;
 
-        int pos = 0;
         for(int x = 0; x < conjuntoB.length; x++){
             int cont = 0;
             for (int j = 0; j < union.length; j++){
@@ -55,6 +58,7 @@ public class Main {
 
             if(cont == 0){
                 union[pos] = conjuntoB[x];
+                pos++;
             }
         }
 
@@ -83,5 +87,48 @@ public class Main {
             System.out.print(iterar + " ");
         }
         System.out.print("}");
+
+        //Diferencia B-A
+        int r = 0;
+        for (int i = 0; i < conjuntoA.length; i++){
+            boolean n = false;
+            for (int j = 0; j < conjuntoB.length; j++){
+                if (conjuntoA[i] != conjuntoB[j]){
+                    n = false;
+                } else {
+                    n = true;
+                    j = conjuntoB.length;
+                }
+            }
+            if (!n) {
+                dif_A_menos_B[r] = conjuntoA[i];
+                r++;
+            }
+        }
+        System.out.println("\n");
+
+        r = 0;
+        boolean n = false;
+        for (int i = 0; i < conjuntoB.length; i++){
+            for (int j = 0; j < conjuntoA.length; j++){
+                if (conjuntoB[i] != conjuntoA[j]){
+                    n = false;
+                } else {
+                    n = true;
+                    break;
+                }
+            }
+            if(!n) {
+                dif_A_menos_B[r] = conjuntoB[i];
+                r++;
+            }
+        }
+        System.out.println("Diferencia B-A :");
+        System.out.print("{ ");
+        for (int i = 0; i < r; i++){
+            System.out.printf("%d, ", dif_A_menos_B[i]);
+        }
+        System.out.println("}");
+
     }
 }

@@ -10,8 +10,8 @@ public class Main {
         int [] conjuntoB = new int[5];
         int [] union = new int[10];
         int [] interseccion = new int[10];
-        int [] dif_A_menos_B = new int[conjuntoA.length + conjuntoB.length];
-        int [] dif_B_menos_A = new int[conjuntoA.length * conjuntoB.length];
+        int [] diferencia_b_menos_a = new int[conjuntoA.length + conjuntoB.length];
+        int [] diferencia_a_menos_b = new int[conjuntoA.length * conjuntoB.length];
         
         System.out.println("Ingrese los elementos para el universo");
         for (int i = 0; i < 10; i++){
@@ -47,8 +47,8 @@ public class Main {
         for (int i = 0; i < conjuntoA.length; i++) {
             union[i] = conjuntoA[i];
         }
-        int pos = 5;
 
+        int pos = 5;
         for(int x = 0; x < conjuntoB.length; x++){
             int cont = 0;
             for (int j = 0; j < union.length; j++){
@@ -80,7 +80,6 @@ public class Main {
         }
 
         System.out.println("\n");
-
         System.out.print("Conjunto interseccion: { ");
         for (int iterar: interseccion){
             System.out.print(iterar + " ");
@@ -100,12 +99,12 @@ public class Main {
                 }
             }
             if (!n) {
-                dif_A_menos_B[r] = conjuntoA[i];
+                diferencia_b_menos_a[r] = conjuntoA[i];
                 r++;
             }
         }
-        System.out.println("\n");
 
+        System.out.println("\n");
         r = 0;
         boolean n = false;
         for (int i = 0; i < conjuntoB.length; i++){
@@ -118,14 +117,14 @@ public class Main {
                 }
             }
             if(!n) {
-                dif_A_menos_B[r] = conjuntoB[i];
+                diferencia_b_menos_a[r] = conjuntoB[i];
                 r++;
             }
         }
         System.out.println("Diferencia B-A :");
         System.out.print("{ ");
         for (int i = 0; i < r; i++){
-            System.out.printf("%d, ", dif_A_menos_B[i]);
+            System.out.printf("%d, ", diferencia_b_menos_a[i]);
         }
         System.out.println("}");
 

@@ -48,7 +48,7 @@ public class Main {
             union[i] = conjuntoA[i];
         }
 
-        int pos = 5;
+        int element = 5;
         for(int x = 0; x < conjuntoB.length; x++){
             int cont = 0;
             for (int j = 0; j < union.length; j++){
@@ -56,8 +56,8 @@ public class Main {
             }
 
             if(cont == 0){
-                union[pos] = conjuntoB[x];
-                pos++;
+                union[element] = conjuntoB[x];
+                element++;
             }
         }
 
@@ -141,7 +141,7 @@ public class Main {
                 }
             }
             if (!c) {
-                dif_B_menos_A[k] = conjuntoA[i];
+                diferencia_a_menos_b[k] = conjuntoA[i];
                 k++;
             }
         }
@@ -149,7 +149,7 @@ public class Main {
         System.out.println("La diferencia de A-B: ");
         System.out.print("{");
         for (int i = 0; i < k; i++){
-            System.out.printf("%d, ", dif_B_menos_A[i]);
+            System.out.printf("%d, ", diferencia_a_menos_b[i]);
         }
         System.out.println("}");
     }
